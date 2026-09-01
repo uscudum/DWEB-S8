@@ -73,22 +73,62 @@ function agregarAlCarrito(idProducto) {
     mostrarCarrito();
 }
 
-// TODO 1: aumentar en una unidad la cantidad del producto indicado.
+// 1: aumentar en una unidad la cantidad del producto indicado.
 // No se debe superar el stock disponible.
 function aumentarCantidad(idProducto) {
+/*
+Pasos sugeridos:
+1. Recuperá el carrito actual usando obtenerCarrito().
+2. Buscá dentro del carrito el ítem cuyo idProducto coincida con idProducto.
+3. Buscá el producto completo dentro del array productos para conocer su stock.
+4. Verificá que la cantidad actual sea menor que el stock disponible.
+5. Si hay stock, aumentá la propiedad cantidad en una unidad.
+6. Guardá el carrito actualizado con guardarCarrito().
+7. Si no hay más stock, utilizá mostrarMensaje() para informar al usuario.
 
+Importante:
+No es necesario llamar a mostrarCarrito() dentro de esta función,
+porque ya se llama luego de hacer clic en el botón "+".
+*/
 }
 
-// TODO 2: disminuir en una unidad la cantidad del producto indicado.
+// 2: disminuir en una unidad la cantidad del producto indicado.
 // Si la cantidad llega a 0, se debe eliminar el producto.
 function disminuirCantidad(idProducto) {
+/*
+Pasos sugeridos:
+1. Recuperá el carrito actual con obtenerCarrito().
+2. Buscá el ítem correspondiente mediante su idProducto.
+3. Comprobá la cantidad actual del ítem.
+4. Si la cantidad es mayor que 1, restá una unidad.
+5. Si la cantidad es igual a 1, no debe quedar en 0:
+   reutilizá la función eliminarDelCarrito() para quitarlo completamente.
+6. Si modificaste la cantidad, guardá el carrito actualizado con guardarCarrito().
 
+Importante:
+Luego del clic, mostrarCarrito() actualizará la interfaz.
+*/
 }
 
 // TODO 3: eliminar completamente el producto indicado.
 // Pista: utilizar filter() y guardar el nuevo carrito.
 function eliminarDelCarrito(idProducto) {
+/*
+Pasos sugeridos:
+1. Recuperá el carrito actual con obtenerCarrito().
+2. Utilizá filter() para crear un nuevo array.
+3. El nuevo array debe conservar únicamente los ítems cuyo idProducto
+   sea diferente al idProducto recibido.
+4. Guardá el nuevo array utilizando guardarCarrito().
 
+Ejemplo de la lógica esperada:
+Si el carrito contiene p1, p2 y p3, y se elimina p2,
+el nuevo carrito debe contener solamente p1 y p3.
+
+Importante:
+No modifiques directamente el array original. filter() devuelve
+un nuevo array con los elementos que deben permanecer.
+*/
 }
 
 function calcularTotal(carrito) {
@@ -171,10 +211,31 @@ function conectarEventosCarrito() {
     });
 }
 
-// TODO 4: buscar el producto seleccionado, completar el modal y mostrarlo.
+// 4: buscar el producto seleccionado, completar el modal y mostrarlo.
 // Se deben actualizar la imagen, categoría, nombre, descripción y precio.
 function verProducto(idProducto) {
+/*
+Pasos sugeridos:
+1. Buscá el producto dentro del array productos utilizando find().
+2. Obtené los elementos del modal mediante querySelector():
+   - #modalProductoImagen
+   - #modalProductoCategoria
+   - #modalProductoNombre
+   - #modalProductoDescripcion
+   - #modalProductoPrecio
+3. Actualizá los textos usando textContent.
+4. Para la imagen, actualizá:
+   - src con producto.imagen
+   - alt con producto.nombre
+5. Formateá el precio utilizando formatearPrecio(producto.precio).
+6. Creá o recuperá la instancia del modal de Bootstrap usando
+   el elemento #modalProducto.
+7. Mostrá el modal.
 
+Importante:
+El idProducto recibido corresponde al valor guardado en el atributo
+data-id del botón "Ver".
+*/
 }
 
 function vaciarCarrito() {
